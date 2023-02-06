@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 import TrailList from "../views/TrailList.vue";
 import AddTrail from "../views/AddTrail.vue";
 

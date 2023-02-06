@@ -1,15 +1,23 @@
+<script lang="ts">
+import TrailCard from '@/components/trail-card.vue';
+
+export default {
+  components: {
+    TrailCard
+  }
+}
+</script>
+
 <template>
-  <div class="about">
-    <h1>Trail list</h1>
-  </div>
+    <TrailCard title="Trail Card 1" description="Trail description" />
+    <TrailCard title="Trail Card 1" description="Trail description" />
+    <TrailCard title="Trail Card 1" description="Trail description" />
+    <TrailCard title="Trail Card 1" description="Trail description" />
+    <TrailCard title="Trail Card 1" description="Trail description" />
+    <TrailCard title="Trail Card 1" description="Trail description" />
+    <TrailCard title="Trail Card 1" description="Trail description" />
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 </style>
