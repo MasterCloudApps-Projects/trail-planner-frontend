@@ -1,23 +1,22 @@
 <script lang="ts">
-import TrailCard from '@/components/trail-card.vue';
+import TrailCard from "@/components/trail-card.vue";
 
 export default {
   components: {
-    TrailCard
+    TrailCard,
+  },
+  data() {
+    return {
+      trailList: [],
+    }
   }
-}
+};
 </script>
 
 <template>
-    <TrailCard title="Trail Card 1" description="Trail description" />
-    <TrailCard title="Trail Card 1" description="Trail description" />
-    <TrailCard title="Trail Card 1" description="Trail description" />
-    <TrailCard title="Trail Card 1" description="Trail description" />
-    <TrailCard title="Trail Card 1" description="Trail description" />
-    <TrailCard title="Trail Card 1" description="Trail description" />
-    <TrailCard title="Trail Card 1" description="Trail description" />
+  <div v-for="trail in this.trailList" v-bind="trail.id">
+    <TrailCard title="{{trail.title}}" description="{{trail.description}}" />
+  </div>
 </template>
 
-<style>
-
-</style>
+<style></style>
