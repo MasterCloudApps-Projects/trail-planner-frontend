@@ -1,21 +1,23 @@
 <script lang="ts">
 import TrailCard from "@/components/trail-card.vue";
+import { useTrackStore } from "@/stores/TrackStore";
 
 export default {
   components: {
     TrailCard,
   },
-  data() {
-    return {
-      trailList: [],
-    }
-  }
+  setup() {
+    const trackStore = useTrackStore();
+    trackStore.fetchTracks();
+
+    return { trackStore };
+  },
 };
 </script>
 
 <template>
-  <div v-for="trail in this.trailList" v-bind="trail.id">
-    <TrailCard title="{{trail.title}}" description="{{trail.description}}" />
+  <div v-for="track in this.trackStore.tracks" :key="track.id">
+    <TrailCard :title="track.name" :description="track.description" />
   </div>
 </template>
 
