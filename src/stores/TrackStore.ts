@@ -14,7 +14,9 @@ export const useTrackStore = defineStore("tracks", {
   },
   actions: {
     async fetchTracks() {
-      axios.get("http://localhost:8080/track").then((response) => {
+      const apiHost = import.meta.env.VITE_API_HOST;
+
+      axios.get(`${apiHost}tracks`).then((response) => {
         this.tracks = [];
         response.data.map((trackInfo: TrackInfo) => {
           this.tracks.push({
@@ -24,6 +26,19 @@ export const useTrackStore = defineStore("tracks", {
           });
         });
       });
+    },
+
+    async addTrack(name: string, description: string, type: string, file: any) {
+      const apiHost = import.meta.env.VITE_API_HOST;
+
+      const formData = new FormData();
+
+      formData.append("file", file[0]);
+      formData.append("name", name);
+      formData.append("description", description);
+      formData.append("type", type);
+
+      await axios.post(`${apiHost}tracks/upload-gpx`, formData);
     },
   },
 });
