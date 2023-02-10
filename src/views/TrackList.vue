@@ -7,12 +7,15 @@ trackStore.fetchTracks();
 </script>
 
 <template>
-  <div
-    v-for="track in trackStore.tracks"
-    :key="track.id"
-    class="is-flex is-flex-direction-column"
-  >
-    <TrackCard class="m-12" :title="track.name" :description="track.description" />
+  <div class="container mx-auto">
+    <div class="flex flex-wrap">
+      <TrackCard
+        v-for="track in trackStore.tracks"
+        :key="track.id"
+        :title="track.name"
+        :description="track.description"
+      />
+    </div>
   </div>
 </template>
 
