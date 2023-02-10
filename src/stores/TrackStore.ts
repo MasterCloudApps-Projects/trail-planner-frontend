@@ -28,12 +28,12 @@ export const useTrackStore = defineStore("tracks", {
       });
     },
 
-    async addTrack(name: string, description: string, type: string, file: any) {
+    async addTrack(name: string, description: string, type: string, file: File) {
       const apiHost = import.meta.env.VITE_API_HOST;
 
       const formData = new FormData();
 
-      formData.append("file", file[0]);
+      formData.append("file", file);
       formData.append("name", name);
       formData.append("description", description);
       formData.append("type", type);

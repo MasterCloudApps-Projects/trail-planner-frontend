@@ -10,7 +10,7 @@ export default defineComponent({
       name: string,
       description: string,
       type: string,
-      file: any
+      file: File
     ) {
       trackStore.addTrack(name, description, type, file);
     }
@@ -21,14 +21,21 @@ export default defineComponent({
     name: "",
     description: "",
     type: "",
-    file: [],
+    file: File,
+    fileName: ""
   }),
+  methods: {
+    handleFileUpload(event: any) {
+      this.file = event.target.files[0];
+      this.fileName = this.file.name;
+    },
+  },
 });
 </script>
 
 <template>
   <div>
-    <form @submit.prevent="addTrackAndClear(name, description, type, file)">
+    <form @submit.prevent="addTrackAndClear(name, description, type, this.file)">
       <div class="field">
         <input
           class="input"
@@ -59,15 +66,19 @@ export default defineComponent({
       <div class="field">
         <div class="file has-name is-info is-fullwidth">
           <label class="file-label">
-            <input class="file-input" type="file" name="file" accept=".gpx" />
+            <input
+              class="file-input"
+              type="file"
+              accept=".gpx"
+              @change="handleFileUpload($event)"
+            />
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-upload"></i>
               </span>
               <span class="file-label"> Choose a gpx file… </span>
             </span>
-            <span class="file-name">
-            </span>
+            <span class="file-name">{{ this.fileName }} </span>
           </label>
         </div>
       </div>
