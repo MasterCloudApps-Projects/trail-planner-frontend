@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import TrailList from "../views/TrailList.vue";
-import AddTrail from "../views/AddTrail.vue";
+import TrackList from "../views/TrackList.vue";
+import AddTrack from "../views/AddTrack.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,12 +8,12 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: TrailList,
+      component: TrackList,
     },
     {
-      path: "/trails/add",
-      name: "addtrail",
-      component: AddTrail,
+      path: "/tracks/add",
+      name: "addtrack",
+      component: AddTrack,
     },
   ],
 });

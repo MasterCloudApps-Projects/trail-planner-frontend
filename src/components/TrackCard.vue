@@ -6,27 +6,21 @@ defineProps<{
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-image">
-      <img
-        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-        alt="{{ title }}"
-      />
+  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <img class="w-full" src="https://v1.tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">{{ title }}</div>
+      <p class="text-gray-700 text-base">
+        {{ description }}
+      </p>
     </div>
-
-    <div class="media-content">
-      <div class="title is-4">
-        {{ title }}
-      </div>
+    <div class="px-6 pt-4 pb-2">
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+        <a href="#" class="card-footer-item">Edit</a>
+      </span>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+        <a href="#" class="card-footer-item">View</a>
+      </span>
     </div>
-
-    <div class="content">
-      {{ description }}
-    </div>
-
-    <footer class="card-footer">
-      <a href="#" class="card-footer-item">Edit</a>
-      <a href="#" class="card-footer-item">View</a>
-    </footer>
   </div>
 </template>

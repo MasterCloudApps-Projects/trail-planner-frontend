@@ -1,10 +1,10 @@
 <template>
-  <svg viewBox="0 0 395.52 247.2" height="247.2" width="395.52">
+  <svg viewBox="0 0 295.52 147.2" height="147.2">
     <g>
       <svg></svg>
     </g>
     <g>
-      <svg viewBox="0 0 395.52 247.2" height="247.2" width="395.52">
+      <svg viewBox="0 0 395.52 247.2">
         <g transform="matrix(1,0,0,1,75.54432000000001,88.82970394003985)">
           <svg
             viewBox="0 0 244.43135999999996 69.54059211992028"

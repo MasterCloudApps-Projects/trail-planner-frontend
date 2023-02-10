@@ -12,7 +12,7 @@ trackStore.fetchTracks();
     :key="track.id"
     class="is-flex is-flex-direction-column"
   >
-    <TrackCard :title="track.name" :description="track.description" />
+    <TrackCard class="m-12" :title="track.name" :description="track.description" />
   </div>
 </template>
 
