@@ -21,8 +21,8 @@ function handleFileUpload(event: any) {
 </script>
 
 <template>
-  <div class="m-12">
-    <form class="w-full max-w-sm" @submit.prevent="addTrackAndClear">
+  <div class="container mx-auto mt-12">
+    <form class="w-full max-w-xl" @submit.prevent="addTrackAndClear">
       <div class="md:flex md:items-center mb-6">
         <div class="md:w-1/3">
           <label
