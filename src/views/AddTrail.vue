@@ -1,41 +1,28 @@
-<script lang="ts">
+<script setup lang="ts">
 import { useTrackStore } from "@/stores/TrackStore";
-import { defineComponent } from "vue";
+import { ref } from "vue";
 
-export default defineComponent({
-  setup() {
-    const trackStore = useTrackStore();
+let name: string = "";
+let description: string = "";
+let type: string = "";
+let file: File;
+let fileName = ref("");
 
-    function addTrackAndClear(
-      name: string,
-      description: string,
-      type: string,
-      file: File
-    ) {
-      trackStore.addTrack(name, description, type, file);
-    }
+const trackStore = useTrackStore();
 
-    return { addTrackAndClear };
-  },
-  data: () => ({
-    name: "",
-    description: "",
-    type: "",
-    file: File,
-    fileName: ""
-  }),
-  methods: {
-    handleFileUpload(event: any) {
-      this.file = event.target.files[0];
-      this.fileName = this.file.name;
-    },
-  },
-});
+function addTrackAndClear() {
+  trackStore.addTrack(name, description, type, file);
+}
+
+function handleFileUpload(event: any) {
+  file = event.target.files[0];
+  fileName.value = file.name;
+}
 </script>
 
 <template>
   <div>
-    <form @submit.prevent="addTrackAndClear(name, description, type, this.file)">
+    <form @submit.prevent="addTrackAndClear">
       <div class="field">
         <input
           class="input"
@@ -78,7 +65,7 @@ export default defineComponent({
               </span>
               <span class="file-label"> Choose a gpx file… </span>
             </span>
-            <span class="file-name">{{ this.fileName }} </span>
+            <span class="file-name">{{ fileName }} </span>
           </label>
         </div>
       </div>
