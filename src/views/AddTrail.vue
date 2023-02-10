@@ -82,6 +82,4 @@ function handleFileUpload(event: any) {
   </div>
 </template>
 
-<style>
-
-</style>
+<style></style>

@@ -1,16 +1,17 @@
-<script lang="ts">
-export default {
-  props: {
-    title: String,
-    description: String
-  }
-};
+<script lang="ts" setup>
+defineProps<{
+  title: String;
+  description: String;
+}>();
 </script>
 
 <template>
   <div class="card">
     <div class="card-image">
-      <img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"  alt="{{ title }}"/>
+      <img
+        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        alt="{{ title }}"
+      />
     </div>
 
     <div class="media-content">
