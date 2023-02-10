@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import type { TrackInfo } from "@/stores/TrackInfo";
 
 export const useTrackStore = defineStore("tracks", {
   state: () => {
@@ -42,9 +43,3 @@ export const useTrackStore = defineStore("tracks", {
     },
   },
 });
-
-export interface TrackInfo {
-  id: number;
-  name: string;
-  description: string;
-}

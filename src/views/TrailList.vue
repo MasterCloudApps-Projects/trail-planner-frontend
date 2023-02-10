@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <div v-for="track in this.trackStore.tracks" :key="track.id">
+  <div v-for="track in this.trackStore.tracks" :key="track.id" class="is-flex is-flex-direction-column">
     <TrailCard :title="track.name" :description="track.description" />
   </div>
 </template>

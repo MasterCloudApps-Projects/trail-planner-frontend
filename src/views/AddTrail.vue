@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useTrackStore } from "@/stores/TrackStore";
-import { ref } from "vue";
+import { Ref, ref } from "vue";
 
 let name: string = "";
 let description: string = "";
 let type: string = "";
 let file: File;
-let fileName = ref("");
+const fileName: Ref = ref<string>("");
 
 const trackStore = useTrackStore();
 
@@ -83,11 +83,5 @@ function handleFileUpload(event: any) {
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 </style>
