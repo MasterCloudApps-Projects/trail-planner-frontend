@@ -2,33 +2,30 @@
 export default {
   props: {
     title: String,
-    description: String,
-  },
+    description: String
+  }
 };
 </script>
 
 <template>
-  <v-card class="ma-6" width="800">
-    <v-img
-      class="align-end text-white"
-      src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      max-height="200"
-      cover
-    >
-    </v-img>
+  <div class="card">
+    <div class="card-image">
+      <img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"  alt="{{ title }}"/>
+    </div>
 
-    <v-card-subtitle class="pt-4">
-      {{ title }}
-    </v-card-subtitle>
+    <div class="media-content">
+      <div class="title is-4">
+        {{ title }}
+      </div>
+    </div>
 
-    <v-card-text>
+    <div class="content">
       {{ description }}
-    </v-card-text>
+    </div>
 
-    <v-card-actions>
-      <v-btn color="orange"> Edit </v-btn>
-
-      <v-btn color="orange"> View </v-btn>
-    </v-card-actions>
-  </v-card>
+    <footer class="card-footer">
+      <a href="#" class="card-footer-item">Edit</a>
+      <a href="#" class="card-footer-item">View</a>
+    </footer>
+  </div>
 </template>

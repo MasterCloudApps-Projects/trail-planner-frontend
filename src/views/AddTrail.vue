@@ -22,59 +22,66 @@ export default defineComponent({
     description: "",
     type: "",
     file: [],
-    nameRules: [
-      (value: string) => {
-        return value ? true : "You must enter a track name.";
-      },
-    ],
-    descriptionRules: [
-      (value: string) => {
-        return value ? true : "You must enter a track description.";
-      },
-    ],
-    typeRules: [
-      (value: string) => {
-        return value ? true : "You must enter a track type.";
-      },
-    ],
-    gpxRules: [
-      (value: any) => {
-        return value ? true : "You must upload a valid GPX file";
-      },
-    ],
   }),
 });
 </script>
 
 <template>
-  <v-sheet width="300" class="mx-auto">
-    <v-form @submit.prevent="addTrackAndClear(name, description, type, file)">
-      <v-text-field
-        v-model="name"
-        :rules="nameRules"
-        label="Track name"
-      ></v-text-field>
-      <v-text-field
-        v-model="description"
-        :rules="descriptionRules"
-        label="Track name"
-      ></v-text-field>
-      <v-text-field
-        v-model="type"
-        :rules="typeRules"
-        label="Track type"
-      ></v-text-field>
+  <div>
+    <form @submit.prevent="addTrackAndClear(name, description, type, file)">
+      <div class="field">
+        <input
+          class="input"
+          type="text"
+          placeholder="Track name"
+          v-model="name"
+        />
+      </div>
 
-      <v-file-input
-        clearable
-        label="Track GPX file"
-        :rules="gpxRules"
-        accept=".gpx"
-        v-model="file"
-      ></v-file-input>
-      <v-btn type="submit" block class="mt-2">Submit</v-btn>
-    </v-form>
-  </v-sheet>
+      <div class="field">
+        <textarea
+          class="textarea"
+          rows="5"
+          v-model="description"
+          placeholder="Track description"
+        />
+      </div>
+
+      <div class="field">
+        <input
+          class="input"
+          v-model="type"
+          type="text"
+          placeholder="Track type"
+        />
+      </div>
+
+      <div class="field">
+        <div class="file has-name is-info is-fullwidth">
+          <label class="file-label">
+            <input class="file-input" type="file" name="file" accept=".gpx" />
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label"> Choose a gpx file… </span>
+            </span>
+            <span class="file-name">
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </template>
 
 <style>
