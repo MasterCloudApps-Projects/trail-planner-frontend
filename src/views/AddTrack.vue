@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTrackStore } from "@/stores/TrackStore";
-import { Ref, ref } from "vue";
+import type { Ref } from "vue";
+import { ref } from "vue";
 
 let name: string = "";
 let description: string = "";
