@@ -1,7 +1,8 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useTrackStore } from "@/stores/TrackStore";
 import type { Ref } from "vue";
 import { ref } from "vue";
+import router from "@/router";
 
 let name: string = "";
 let description: string = "";
@@ -13,6 +14,7 @@ const trackStore = useTrackStore();
 
 function addTrackAndClear() {
   trackStore.addTrack(name, description, type, file);
+  router.push("/");
 }
 
 function handleFileUpload(event: any) {
@@ -35,10 +37,10 @@ function handleFileUpload(event: any) {
         </div>
         <div class="md:w-2/3">
           <input
-            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-name"
-            type="text"
             v-model="name"
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            type="text"
           />
         </div>
       </div>
@@ -53,10 +55,10 @@ function handleFileUpload(event: any) {
         </div>
         <div class="md:w-2/3">
           <input
-            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-description"
-            type="text"
             v-model="description"
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            type="text"
           />
         </div>
       </div>
@@ -71,10 +73,10 @@ function handleFileUpload(event: any) {
         </div>
         <div class="md:w-2/3">
           <input
-            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-type"
-            type="text"
             v-model="type"
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            type="text"
           />
         </div>
       </div>
@@ -89,10 +91,10 @@ function handleFileUpload(event: any) {
         </div>
         <div class="md:w-2/3">
           <input
-            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-file"
-            type="file"
             accept=".gpx"
+            class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+            type="file"
             @change="handleFileUpload($event)"
           />
         </div>
